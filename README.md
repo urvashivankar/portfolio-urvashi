@@ -42,7 +42,7 @@ It includes a 3D interface, smooth animations, and showcases my featured data sc
 🎓 **Urvashi Vankar**  
 📍 Vadodara, Gujarat, India  
 📧 [urvashiparmar1603@gmail.com](mailto:urvashiparmar1603@gmail.com)  
-🔗 [LinkedIn](https://www.linkedin.com/in/urvashi-vankar-5229bb272/) | [GitHub](https://github.com/urvashivankar)
+🔗 [LinkedIn](https://www.linkedin.com/in/urvashi-vankar-5229bb272/) | [GitHub](https://github.com/urvashivankar) | [portfolio](https://portfolio-urvashi-ff8f.vercel.app/)
 
 > I’m passionate about uncovering insights from data, building intelligent models, and exploring how AI can transform industries. Currently seeking **Data Analyst / Data Science / AI-ML internship opportunities**.
 
