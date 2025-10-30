@@ -99,6 +99,20 @@ export const Contact = () => {
                       </a>
                     </div>
                   </div>
+                  <div className="flex items-center gap-4 glass-card p-4 rounded-lg hover-lift">
+                    <div className="p-3 rounded-lg bg-primary/20">
+                      <Mail className="h-5 w-5 text-primary" />
+                    </div>
+                    <div>
+                      <p className="text-sm text-muted-foreground">Phone</p>
+                      <a
+                        href="tel:+919510972650"
+                        className="text-foreground hover:text-primary transition-colors"
+                      >
+                        +91 9510972650
+                      </a>
+                    </div>
+                  </div>
 
                   <div className="flex items-center gap-4 glass-card p-4 rounded-lg hover-lift">
                     <div className="p-3 rounded-lg bg-secondary/20">
@@ -117,7 +131,7 @@ export const Contact = () => {
                 <h3 className="text-xl font-bold mb-4">Connect With Me</h3>
                 <div className="flex gap-4">
                   <motion.a
-                    href="https://linkedin.com/in/urvashi-vankar"
+                    href="https://www.linkedin.com/in/urvashi-vankar-5229bb272/"
                     target="_blank"
                     rel="noopener noreferrer"
                     whileHover={{ scale: 1.1, y: -5 }}

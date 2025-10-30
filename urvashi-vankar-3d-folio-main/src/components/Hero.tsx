@@ -55,7 +55,7 @@ export const Hero = () => {
           </motion.p>
           
           <motion.h1
-            className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 gradient-text"
+            className="text-4xl md:text-6xl lg:text-7xl font-bold mb-4 text-foreground"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.3, duration: 0.8 }}
@@ -64,18 +64,15 @@ export const Hero = () => {
           </motion.h1>
           
           <motion.div
-            className="text-xl md:text-3xl lg:text-4xl font-semibold text-foreground/90 mb-8 space-y-2"
+            className="text-lg md:text-xl lg:text-2xl font-medium text-muted-foreground mb-6 space-y-2"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5 }}
           >
             <p className="flex items-center justify-center gap-2 flex-wrap">
-              <span>💻 Data Analyst</span>
+              <span>Data Analyst</span>
               <span className="text-muted-foreground">|</span>
               <span>AI & ML Enthusiast</span>
-            </p>
-            <p className="text-lg md:text-xl text-muted-foreground">
-              Cloud Learner
             </p>
           </motion.div>
 
