@@ -28,7 +28,7 @@ export const Contact = () => {
     );
   }, [formData]);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const newErrors: { name?: string; email?: string; message?: string } = {};
     if (formData.name.trim().length < 2) newErrors.name = "Please enter at least 2 characters.";
@@ -39,15 +39,18 @@ export const Contact = () => {
       toast.error("Please fix the highlighted fields.");
       return;
     }
-
-    // Mailto fallback to open user's email client
-    const subject = encodeURIComponent(`Portfolio Inquiry from ${formData.name}`);
-    const body = encodeURIComponent(
-      `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
-    );
-    window.location.href = `mailto:urvashiparmar1603@gmail.com?subject=${subject}&body=${body}`;
-    toast.success("Opening your email client to send the message.");
-    setFormData({ name: "", email: "", message: "" });
+    try {
+      const res = await fetch("/api/submit-contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData)
+      });
+      if (!res.ok) throw new Error("Request failed");
+      toast.success("Submitted successfully!");
+      setFormData({ name: "", email: "", message: "" });
+    } catch (error) {
+      toast.error("Submission failed. Please try again later.");
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {

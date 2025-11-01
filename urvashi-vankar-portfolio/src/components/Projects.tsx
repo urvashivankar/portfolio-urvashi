@@ -3,60 +3,52 @@ import { useInView } from "framer-motion";
 import { useMemo, useRef, useState } from "react";
 
 const projects = [
+  
   {
-    title: "Acting-Clone",
-    description: "AI agent mimicking acting-style speech and facial expressions using deep learning and CV.",
-    tags: ["Python", "Deep Learning", "MediaPipe", "OpenCV"],
-    color: "from-blue-500 to-cyan-500"
-  },
-  {
-    title: "Brain Tumor Clean",
+    title: "Brain Tumor Detection",
     description: "MRI image classification with CNNs and transfer learning achieving ~95% accuracy.",
     tags: ["TensorFlow", "Keras", "CNN"],
-    color: "from-purple-500 to-pink-500"
+    color: "from-purple-500 to-pink-500",
+    url: "https://github.com/urvashivankar/brain-tumor-detection"
   },
   {
     title: "EV Forecast Model",
     description: "Time-series model forecasting EV energy demand for smart-city planning and insights.",
     tags: ["ARIMA", "Scikit-Learn", "Power BI"],
-    color: "from-green-500 to-emerald-500"
+    color: "from-green-500 to-emerald-500",
+    url: "https://github.com/urvashivankar/EV_FORECAST_MODEL"
   },
-  {
-    title: "Image Clairvoyant Hub",
-    description: "Multi-model image prediction hub supporting classification and segmentation tasks.",
-    tags: ["FastAPI", "TensorFlow", "Streamlit"],
-    color: "from-orange-500 to-red-500"
-  },
+  
   {
     title: "Iris Flower Prediction",
     description: "Classic ML model predicting flower species with ~98% accuracy; great for explainability demos.",
     tags: ["Scikit-learn", "Matplotlib"],
-    color: "from-teal-500 to-blue-500"
+    color: "from-teal-500 to-blue-500",
+    url: "https://github.com/urvashivankar/Iris-Flower-Prediction"
   },
   {
     title: "Renewable Energy Adoption",
     description: "Global trend analysis highlighting adoption gaps and forecasting 2030 sustainability goals.",
     tags: ["Pandas", "Power BI", "Matplotlib"],
-    color: "from-yellow-500 to-orange-500"
+    color: "from-yellow-500 to-orange-500",
+    url: "https://github.com/urvashivankar/RENEWABLE-ENERGY-ADOPTION"
   },
   {
     title: "Solar DC Power Forecast App",
     description: "Web app predicting solar DC power output using real-time weather and ML regression.",
     tags: ["Streamlit", "Scikit-Learn", "APIs"],
-    color: "from-fuchsia-500 to-rose-500"
+    color: "from-fuchsia-500 to-rose-500",
+    url: "https://github.com/urvashivankar/solar_dc_power_forecast_app"
   },
   {
-    title: "AI Document Retrieval (RAG)",
-    description: "Document search using IBM Granite LLMs and LangChain; ~90% accuracy on 1K+ docs.",
-    tags: ["LangChain", "IBM Granite", "Python"],
-    color: "from-indigo-500 to-purple-500"
+    title: "Sentiment Analysis API",
+    description: "REST API for sentiment classification with a lightweight NLP model and fast inference.",
+    tags: ["FastAPI", "NLP", "Python"],
+    color: "from-rose-500 to-red-500",
+    url: "https://github.com/urvashivankar/sentiment-analysis-API"
   },
-  {
-    title: "COVID-19 Data Analysis",
-    description: "Pandemic trend visualization and insights on 10K+ records using Python and Matplotlib.",
-    tags: ["Python", "Pandas", "Matplotlib"],
-    color: "from-sky-500 to-cyan-600"
-  }
+  
+  
 ];
 
 export const Projects = () => {
@@ -111,12 +103,15 @@ export const Projects = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredProjects.map((project, index) => (
-              <motion.div
+              <motion.a
                 key={project.title}
                 initial={{ opacity: 0, y: 50 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="glass-card rounded-xl overflow-hidden hover-lift group"
+                className="glass-card rounded-xl overflow-hidden hover-lift group block"
+                href={(project as any).url || undefined}
+                target={ (project as any).url ? "_blank" : undefined }
+                rel={ (project as any).url ? "noopener noreferrer" : undefined }
               >
                 <div className={`h-2 bg-gradient-to-r ${project.color}`} />
                 
@@ -129,9 +124,9 @@ export const Projects = () => {
                     {project.description}
                   </p>
                   
-                  {/* Intentionally showing only title and description as requested */}
+                  {/* Card is clickable; opens repo if url provided */}
                 </div>
-              </motion.div>
+              </motion.a>
             ))}
           </div>
         </motion.div>
